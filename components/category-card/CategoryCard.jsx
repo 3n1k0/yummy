@@ -1,9 +1,10 @@
 import Image from "next/image";
+import styles from "./CategoryCard.module.scss";
 
 const CategoryCard = ({ category }) => {
   return (
     <>
-      <h1>{category.strCategory}</h1>
+      <h1 className={styles.myComponent}>{category.strCategory}</h1>
       <Image
         src={category.strCategoryThumb}
         width={100}
