@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./CategoryCard.module.scss";
 
 const CategoryCard = ({ category }) => {
@@ -7,11 +8,13 @@ const CategoryCard = ({ category }) => {
       <Image
         className={styles.categoryImage}
         src={category.strCategoryThumb}
-        width={150}
+        width={148}
         height={150}
         alt={category.strCategory}
       />
-      <h3 className={styles.heading}>{category.strCategory}</h3>
+      <Link href={`category/${category.strCategory}`}>
+        <h3 className={styles.heading}>{category.strCategory}</h3>
+      </Link>
     </div>
   );
 };

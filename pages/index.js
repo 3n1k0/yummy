@@ -13,6 +13,7 @@ export default function Home({ categories = [] }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <Hero />
         <div className={styles.categories}>
           {categories.map((category) => (
             <CategoryCard category={category} />
