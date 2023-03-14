@@ -1,3 +1,14 @@
-.myComponent {
-  color: red;
+.heading {
+  color: #000;
+}
+
+.categoryImage {
+  color: #000;
+  width: 100px;
+}
+
+.categoryWrapper {
+  width: 500px;
+  display: flex;
+  flex-direction: row;
 }

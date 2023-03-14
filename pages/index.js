@@ -1,10 +1,7 @@
 import Head from "next/head";
-import { Inter } from "next/font/google";
-import RecipeCard from "@/components/recipe-card/RecipeCard";
+import styles from "./index.module.scss";
 import { fetchRecipes } from "@/services/fetchCategories";
-import CategoryCard from "@/components/category-card/CategoryCard";
-
-const inter = Inter({ subsets: ["latin"] });
+import { CategoryCard, Hero } from "@/components";
 
 export default function Home({ categories = [] }) {
   return (
@@ -16,9 +13,11 @@ export default function Home({ categories = [] }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {categories.map((category) => (
-          <CategoryCard category={category} />
-        ))}
+        <div className={styles.categories}>
+          {categories.map((category) => (
+            <CategoryCard category={category} />
+          ))}
+        </div>
       </main>
     </>
   );

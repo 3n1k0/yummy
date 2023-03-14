@@ -1,0 +1,19 @@
+.heroWrapper {
+  z-index: 0;
+  width: 100%;
+  height: 700px;
+  position: relative;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.heading {
+  z-index: 1;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
