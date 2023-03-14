@@ -1,3 +1,4 @@
+import { Button } from "..";
 import styles from "./Search.module.scss";
 
 const Search = () => {
@@ -11,9 +12,7 @@ const Search = () => {
         id="search"
         name="search"
       />
-      <button className={styles.submit} type="submit">
-        Search
-      </button>
+      <Button type="submit" text="Search" />
     </form>
   );
 };

@@ -4,14 +4,14 @@ import styles from "./CategoryCard.module.scss";
 const CategoryCard = ({ category }) => {
   return (
     <div className={styles.categoryWrapper}>
-      <h3 className={styles.heading}>{category.strCategory}</h3>
       <Image
         className={styles.categoryImage}
         src={category.strCategoryThumb}
-        width={100}
-        height={100}
+        width={150}
+        height={150}
         alt={category.strCategory}
       />
+      <h3 className={styles.heading}>{category.strCategory}</h3>
     </div>
   );
 };

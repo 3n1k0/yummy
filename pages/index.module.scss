@@ -1,4 +1,8 @@
 .categories {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+  grid-template-columns: repeat(5, 150px);
+  margin-top: 20px;
 }

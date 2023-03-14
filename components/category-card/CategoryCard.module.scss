@@ -4,11 +4,14 @@
 
 .categoryImage {
   color: #000;
-  width: 100px;
+  object-fit: cover;
 }
 
 .categoryWrapper {
-  width: 500px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  border: 1px solid grey;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
 }
