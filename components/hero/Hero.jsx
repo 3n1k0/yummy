@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <>
       <div className={styles.heroWrapper}>
-        <h1 className={styles.heading}>Yummy Recipes</h1>
+        <h1 className={styles.heading}>Yummy</h1>
         <Image src="/hero.jpg" fill />
         <Search />
       </div>
