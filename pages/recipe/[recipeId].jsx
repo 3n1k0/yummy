@@ -1,23 +1,21 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { fetchRecipe } from "../api/fetchRecipe";
 
 export default function Recipe() {
   const router = useRouter();
   const { recipeId } = router.query;
   const [recipe, setRecipe] = useState(null);
 
-  useEffect(() => {
-    async function fetchRecipe() {
-      const res = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId}`
-      );
-      const data = await res.json();
-      setRecipe(data.meals[0]);
-    }
+useEffect(() => {
+  const getRecipe = async () => {
     if (recipeId) {
-      fetchRecipe();
+      const recipe = await fetchRecipe(recipeId);
+      setRecipe(recipe)
     }
-  }, [recipeId]);
+  };
+  getRecipe();
+}, [recipeId]);
 
   if (!recipe) {
     return <div>Loading...</div>;
