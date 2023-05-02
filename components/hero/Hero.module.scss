@@ -3,17 +3,20 @@
   width: 100%;
   height: 700px;
   position: relative;
+  display: flex;
+  justify-content: center;
 
-  img {
+  .heroImage {
     object-fit: cover;
+    left: 500px;
+    filter: brightness(0.6);
   }
 }
 
 .heading {
   z-index: 1;
   font-weight: 300;
-  font-size: 100px;
-  letter-spacing: 10px;
+  font-size: 70px;
   position: absolute;
   top: 30%;
   width: 100%;
