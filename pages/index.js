@@ -27,14 +27,14 @@ export default function Home({ categories = [] }) {
               </Link>
               <CategoryCard category={category} />
             </>
-          ))}
+          )).slice(0, 5)}
         </div>
       </main>
     </>
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const data = await fetchCategories();
 
   return {

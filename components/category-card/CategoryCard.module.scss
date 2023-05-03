@@ -10,7 +10,11 @@
 .categoryWrapper {
   display: flex;
   flex-direction: column;
-  border-radius: 10px;
+  border-radius: 3px;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
+  text-align: center;
+  margin: 10px;
+  height: 200px;
 }

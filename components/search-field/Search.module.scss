@@ -9,8 +9,11 @@
 
 .input {
   height: 70px;
-  width: 600px;
+  max-width: 600px;
+  min-width: 400px;
   border-radius: 30px;
   margin-bottom: 20px;
   border: 1px solid grey;
+  padding: 20px;
+  font-size: 20px;
 }
