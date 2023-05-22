@@ -8,17 +8,15 @@ const Navigation = ({ navigationItems }) => {
       <ul className={styles.menuItems}>
         {navigationItems.map((item) => (
           <li key={item.id}>
-            <Link href={item.url}>
-              <a>{item.label}</a>
-            </Link>
+            <Link href={item.url}>{item.label}</Link>
           </li>
         ))}
         <div className={styles.userLogin}>
           <Link data-testid="login" href="login">
-            <a>Login</a>
+            Login
           </Link>
           <Link data-testid="register" href="register">
-            <a>Register</a>
+            Register
           </Link>
         </div>
       </ul>
