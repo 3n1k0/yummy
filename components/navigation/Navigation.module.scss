@@ -1,0 +1,23 @@
+.wrapper {
+  height: 50px;
+  background-color: white;
+  position: fixed;
+  opacity: 0.8;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.menuItems {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.userLogin {
+  display: flex;
+  flex-direction: row;
+}
