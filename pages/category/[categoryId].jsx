@@ -2,24 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-export default function Category() {
-  const router = useRouter();
-  const { categoryId } = router.query;
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    async function fetchRecipes() {
-      const res = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryId}`
-      );
-      const data = await res.json();
-      setRecipes(data.meals);
-    }
-    if (categoryId) {
-      fetchRecipes();
-    }
-  }, [categoryId]);
-
+export default function Category({ recipes, categoryId }) {
   if (!categoryId) {
     return <div>Loading...</div>;
   }
@@ -36,4 +19,24 @@ export default function Category() {
       </ul>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { categoryId } = context.query;
+  let recipes = [];
+
+  if (categoryId) {
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryId}`
+    );
+    const data = await res.json();
+    recipes = data.meals || [];
+  }
+
+  return {
+    props: {
+      recipes,
+      categoryId,
+    },
+  };
 }

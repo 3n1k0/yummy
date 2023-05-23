@@ -1,22 +1,6 @@
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
 import { fetchRecipe } from "../api/fetchRecipe";
 
-export default function Recipe() {
-  const router = useRouter();
-  const { recipeId } = router.query;
-  const [recipe, setRecipe] = useState(null);
-
-useEffect(() => {
-  const getRecipe = async () => {
-    if (recipeId) {
-      const recipe = await fetchRecipe(recipeId);
-      setRecipe(recipe)
-    }
-  };
-  getRecipe();
-}, [recipeId]);
-
+export default function Recipe({ recipe }) {
   if (!recipe) {
     return <div>Loading...</div>;
   }
@@ -46,4 +30,15 @@ useEffect(() => {
       <p>{recipe.strInstructions}</p>
     </div>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { recipeId } = context.query;
+  const recipe = await fetchRecipe(recipeId);
+
+  return {
+    props: {
+      recipe,
+    },
+  };
 }
