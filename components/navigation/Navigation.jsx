@@ -1,24 +1,39 @@
-import React from "react";
-import Link from "next/link";
-import styles from "./Navigation.module.scss";
+import { useState } from 'react';
+import Link from 'next/link';
 
-const Navigation = ({ navigationItems }) => {
+import styles from './Navigation.module.scss';
+
+const Navigation = ({navigationItems}) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <nav className={styles.wrapper}>
-      <ul className={styles.menuItems}>
-        {navigationItems.map((item) => (
-          <li key={item.id}>
-            <Link href={item.url}>{item.label}</Link>
-          </li>
-        ))}
-        <div className={styles.userLogin}>
-          <Link data-testid="login" href="login">
-            Login
-          </Link>
-          <Link data-testid="register" href="register">
-            Register
-          </Link>
-        </div>
+    <nav>
+      <div className={styles.logo}>
+        <Link href="/">
+          <div >Logo</div>
+        </Link>
+      </div>
+      <div className={`${styles.burger} ${menuOpen ? styles.active : ''}`} onClick={toggleMenu}>
+        <div className={styles.line1}></div>
+        <div className={styles.line2}></div>
+        <div className={styles.line3}></div>
+      </div>
+
+      <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
+        <li>
+          <div>
+            <Link href="/">Home</Link>
+          </div>
+        </li>
+        <li>
+          <div>
+            <Link href="/about">About</Link>
+          </div>
+        </li>
       </ul>
     </nav>
   );

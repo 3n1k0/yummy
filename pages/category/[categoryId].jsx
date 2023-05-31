@@ -1,12 +1,9 @@
-import { useRouter } from "next/router";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function Category({ recipes, categoryId }) {
   if (!categoryId) {
     return <div>Loading...</div>;
   }
-
   return (
     <div>
       <h1>{categoryId}</h1>

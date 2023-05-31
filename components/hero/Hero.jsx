@@ -12,7 +12,6 @@ const Hero = () => {
           fill
           className={styles.heroImage}
         />
-        <h1 className={styles.heading}>Yummy</h1>
         <Search />
       </div>
     </>
