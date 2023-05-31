@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Link from "next/link";
 
-import styles from './Navigation.module.scss';
+import styles from "./Navigation.module.scss";
 
-const Navigation = ({navigationItems}) => {
+const Navigation = ({ navigationItems }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -11,30 +11,42 @@ const Navigation = ({navigationItems}) => {
   };
 
   return (
-    <nav>
-      <div className={styles.logo}>
-        <Link href="/">
-          <div >Logo</div>
-        </Link>
-      </div>
-      <div className={`${styles.burger} ${menuOpen ? styles.active : ''}`} onClick={toggleMenu}>
-        <div className={styles.line1}></div>
-        <div className={styles.line2}></div>
-        <div className={styles.line3}></div>
+    <nav className={styles.wrapper}>
+      <div className={styles.burger} onClick={toggleMenu}>
+        <div className={`${styles.line1} ${menuOpen ? styles.rotate1 : ""}`}></div>
+        <div className={`${styles.line2} ${menuOpen ? styles.hideLine : ""}`}></div>
+        <div className={`${styles.line3} ${menuOpen ? styles.rotate3 : ""}`}></div>
       </div>
 
-      <ul className={`${styles.navLinks} ${menuOpen ? styles.active : ''}`}>
-        <li>
-          <div>
-            <Link href="/">Home</Link>
-          </div>
-        </li>
-        <li>
-          <div>
-            <Link href="/about">About</Link>
-          </div>
-        </li>
-      </ul>
+      <div className={`${styles.navLinks} ${menuOpen ? styles.active : ""}`}>
+      <p className={styles.navLogo}>LOGO</p>
+        <ul className={styles.navLinkWrapper}>
+        {navigationItems.map((item) => {
+          return (
+            <li key={item.id}>
+              <div>
+                <Link href={item.url}>{item.label}</Link>
+              </div>
+            </li>
+          );
+        })}
+        </ul>
+      </div>
+
+      <div className={styles.logo}>
+        <Link href="/">
+          <p>yummy</p>
+        </Link>
+      </div>
+
+      <div className={styles.icons}>
+        <Link href="/">
+          <div>Icon 1</div>
+        </Link>
+        <Link href="/">
+          <div>Icon 2</div>
+        </Link>
+      </div>
     </nav>
   );
 };

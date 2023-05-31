@@ -9,7 +9,7 @@ const sourceSherif = Source_Serif_Pro({ subsets: ["latin"], weight: ["700"] });
 export default function App({ Component, pageProps }) {
   return (
     <main className={roboto.className}>
-      <Layout>
+      <Layout className={sourceSherif.className}>
       <Component {...pageProps} />
       </Layout>
     </main>
