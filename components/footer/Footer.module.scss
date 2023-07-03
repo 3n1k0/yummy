@@ -1,0 +1,9 @@
+@import '../../styles/colors';
+
+.footerWrapper {
+    background-color: $secondary-color;
+    opacity: 0.5;
+    height: 20rem;
+    width: 100%;
+    position: relative;
+}

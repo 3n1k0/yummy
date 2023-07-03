@@ -28,7 +28,7 @@ export default function Home({ categories = [] }) {
                 </Link>
                 <CategoryCard category={category} />
               </>
-            )).slice(0, 3)}
+            )).slice(2, 6)}
           </div>
           <Link className={styles.seeMoreLink} href="/categories">View all categories</Link>
         </div>
