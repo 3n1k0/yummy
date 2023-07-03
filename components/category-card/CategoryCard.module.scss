@@ -1,20 +1,27 @@
-.heading {
-  color: #000;
+@import '../../styles/colors';
+
+.categoryHeading {
+  color: $primary-dark;
+  background: $primary-light;
 }
 
 .categoryImage {
-  color: #000;
   object-fit: cover;
 }
 
-.categoryWrapper {
+.categoryImageWrapper {
   display: flex;
   flex-direction: column;
   border-radius: 3px;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
   text-align: center;
   margin: 10px;
-  height: 200px;
+  height: 15rem;
+  width: 15rem;
+  position: relative;
+}
+
+.link {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

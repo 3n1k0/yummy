@@ -1,0 +1,16 @@
+// Base Font Size
+$base-font-size: 16px;
+
+// Heading Font Sizes
+$heading-1-size: $base-font-size * 2;
+$heading-2-size: $base-font-size * 1.8;
+$heading-3-size: $base-font-size * 1.6;
+$heading-4-size: $base-font-size * 1.4;
+$heading-5-size: $base-font-size * 1.2;
+$heading-6-size: $base-font-size * 1.1;
+
+// Body Font Sizes
+$body-small-size: $base-font-size * 0.8;
+$body-normal-size: $base-font-size;
+$body-large-size: $base-font-size * 1.2;
+$body-extra-large-size: $base-font-size * 1.4;

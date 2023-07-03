@@ -5,22 +5,9 @@
   position: relative;
   display: flex;
   justify-content: center;
-
-  .heroImage {
-    object-fit: cover;
-    left: 500px;
-    filter: brightness(0.6);
-  }
 }
 
-.heading {
-  z-index: 1;
-  font-family: sourceSherif;
-  font-size: 70px;
-  font-weight: 700;
-  position: absolute;
-  top: 30%;
-  width: 100%;
-  text-align: center;
-  color: white;
+.heroImage {
+  object-fit: cover;
+  filter: brightness(0.4);
 }

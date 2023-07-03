@@ -1,5 +1,5 @@
 import { Navigation } from "@/components";
-import "@/globals.scss";
+import "@/styles/globals.scss";
 import { Roboto, Source_Serif_Pro } from "next/font/google";
 import Layout from "./layout/Layout";
 
@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
   return (
     <main className={roboto.className}>
       <Layout className={sourceSherif.className}>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       </Layout>
     </main>
   );

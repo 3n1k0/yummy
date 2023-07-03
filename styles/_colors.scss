@@ -1,0 +1,43 @@
+// Primary Colors
+$primary-color: #FF6B6B;
+$secondary-color: #6B66FF;
+
+// Base Colors
+$primary-dark: #000000;
+$primary-light: #FFFFFF;
+
+// Text Colors
+$text-color: #333333;
+$heading-color: #000000;
+
+// Background Colors
+$body-bg-color: #F2F2F2;
+$container-bg-color: #FFFFFF;
+
+// Accent Colors
+$accent-color-1: #FFD56B;
+$accent-color-2: #66FF88;
+$accent-color-3: #6BD2FF;
+
+// Button Colors
+$button-bg-color: $primary-color;
+$button-text-color: #FFFFFF;
+$button-hover-bg-color: darken($button-bg-color, 10%);
+
+// Input Colors
+$input-bg-color: #FFFFFF;
+$input-text-color: #333333;
+$input-border-color: #CCCCCC;
+$input-placeholder-color: #999999;
+
+// Error Colors
+$error-color: #FF0000;
+
+// Success Colors
+$success-color: #00FF00;
+
+// Info Colors
+$info-color: #0099FF;
+
+// Warning Colors
+$warning-color: #FF9900;

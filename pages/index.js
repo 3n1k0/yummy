@@ -15,19 +15,22 @@ export default function Home({ categories = [] }) {
       </Head>
       <main>
         <Hero />
-        <h2 className={styles.categoryHeader}>Categories</h2>
-        <div className={styles.categories}>
-          {categories.map((category) => (
-            <>
-              <Link
-                href="/category/[categoryId]"
-                as={`/category/${category.id}`}
-              >
-                {category.name}
-              </Link>
-              <CategoryCard category={category} />
-            </>
-          )).slice(0, 5)}
+        <div className={styles.categoryWrapper}>
+          <h1>Featured Categories</h1>
+          <div className={styles.categories}>
+            {categories.map((category) => (
+              <>
+                <Link
+                  href="/category/[categoryId]"
+                  as={`/category/${category.id}`}
+                >
+                  {category.name}
+                </Link>
+                <CategoryCard category={category} />
+              </>
+            )).slice(0, 3)}
+          </div>
+          <Link className={styles.seeMoreLink} href="/categories">View all categories</Link>
         </div>
       </main>
     </>
