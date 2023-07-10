@@ -1,8 +1,8 @@
 import Head from "next/head";
-import styles from "./index.module.scss";
-import { CategoryCard, Hero } from "@/components";
+import styles from './index.module.scss'
+
+import { CategoryCard, CategoryCarousel, Hero } from "@/components";
 import Link from "next/link";
-import { fetchCategories } from "./api/fetchCategories";
 
 export default function Home({ categories = [] }) {
   return (

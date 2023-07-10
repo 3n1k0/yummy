@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Link from "next/link";
-
+import { BiLogIn } from "react-icons/Bi";
+import { RiAccountPinBoxLine } from "react-icons/ri";
 import styles from "./Navigation.module.scss";
 
 const Navigation = ({ navigationItems }) => {
@@ -13,23 +14,29 @@ const Navigation = ({ navigationItems }) => {
   return (
     <nav className={styles.wrapper}>
       <div className={styles.burger} onClick={toggleMenu}>
-        <div className={`${styles.line1} ${menuOpen ? styles.rotate1 : ""}`}></div>
-        <div className={`${styles.line2} ${menuOpen ? styles.hideLine : ""}`}></div>
-        <div className={`${styles.line3} ${menuOpen ? styles.rotate3 : ""}`}></div>
+        <div
+          className={`${styles.line1} ${menuOpen ? styles.rotate1 : ""}`}
+        ></div>
+        <div
+          className={`${styles.line2} ${menuOpen ? styles.hideLine : ""}`}
+        ></div>
+        <div
+          className={`${styles.line3} ${menuOpen ? styles.rotate3 : ""}`}
+        ></div>
       </div>
 
       <div className={`${styles.navLinks} ${menuOpen ? styles.active : ""}`}>
-      <p className={styles.navLogo}>LOGO</p>
+        <p className={styles.navLogo}>LOGO</p>
         <ul className={styles.navLinkWrapper}>
-        {navigationItems.map((item) => {
-          return (
-            <li key={item.id}>
-              <div>
-                <Link href={item.url}>{item.label}</Link>
-              </div>
-            </li>
-          );
-        })}
+          {navigationItems.map((item) => {
+            return (
+              <li key={item.id}>
+                <div>
+                  <Link href={item.url}>{item.label}</Link>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -39,12 +46,18 @@ const Navigation = ({ navigationItems }) => {
         </Link>
       </div>
 
-      <div className={styles.icons}>
-        <Link href="/">
-          <div>Icon 1</div>
+      <div className={styles.authenticationContainer}>
+        <Link className={styles.itemWrapper} href="/login">
+          <p>Login</p>
+          <div className={styles.iconWrapper}>
+            <BiLogIn />
+          </div>
         </Link>
-        <Link href="/">
-          <div>Icon 2</div>
+        <Link className={styles.itemWrapper} href="/register">
+          <p>Register</p>
+          <div className={styles.iconWrapper}>
+            <RiAccountPinBoxLine />
+          </div>
         </Link>
       </div>
     </nav>
