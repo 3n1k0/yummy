@@ -1,8 +1,7 @@
 import Head from "next/head";
-import styles from './index.module.scss'
 
-import { CategoryCard, CategoryCarousel, Hero } from "@/components";
-import Link from "next/link";
+import { CategoryCarousel, Hero } from "@/components";
+import { fetchCategories } from "./api/fetchCategories";
 
 export default function Home({ categories = [] }) {
   return (
@@ -15,27 +14,12 @@ export default function Home({ categories = [] }) {
       </Head>
       <main>
         <Hero />
-        <div className={styles.categoryWrapper}>
-          <h1>Featured Categories</h1>
-          <div className={styles.categories}>
-            {categories.map((category) => (
-              <>
-                <Link
-                  href="/category/[categoryId]"
-                  as={`/category/${category.id}`}
-                >
-                  {category.name}
-                </Link>
-                <CategoryCard category={category} />
-              </>
-            )).slice(2, 6)}
-          </div>
-          <Link className={styles.seeMoreLink} href="/categories">View all categories</Link>
-        </div>
+        <CategoryCarousel categories={categories}/>
       </main>
     </>
   );
 }
+
 
 export async function getServerSideProps() {
   const data = await fetchCategories();
