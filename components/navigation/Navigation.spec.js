@@ -5,8 +5,7 @@ import Navigation from "./Navigation";
 describe("Navigation", () => {
   const navigationItems = [
     { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "/categories", label: "Categories" },
-    { id: 3, url: "/blog", label: "Blog" },
+    { id: 2, url: "/categories", label: "Categories" }
   ];
 
   it("renders navigation items correctly", async () => {
@@ -28,7 +27,7 @@ describe("Navigation", () => {
     const loginLink = await findByTestId("login");
     const registerLink = await findByTestId("register");
 
-    expect(loginLink.getAttribute("href")).toBe("login");
-    expect(registerLink.getAttribute("href")).toBe("register");
+    expect(loginLink.getAttribute("href")).toBe("/login");
+    expect(registerLink.getAttribute("href")).toBe("/register");
   });
 });

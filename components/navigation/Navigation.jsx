@@ -47,13 +47,17 @@ const Navigation = ({ navigationItems }) => {
       </div>
 
       <div className={styles.authenticationContainer}>
-        <Link className={styles.itemWrapper} href="/login">
+        <Link data-testid="login" className={styles.itemWrapper} href="/login">
           <p>Login</p>
           <div className={styles.iconWrapper}>
             <BiLogIn />
           </div>
         </Link>
-        <Link className={styles.itemWrapper} href="/register">
+        <Link
+          data-testid="register"
+          className={styles.itemWrapper}
+          href="/register"
+        >
           <p>Register</p>
           <div className={styles.iconWrapper}>
             <RiAccountPinBoxLine />
