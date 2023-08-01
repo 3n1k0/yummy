@@ -4,8 +4,7 @@ import CategoryCard from "./CategoryCard";
 
 describe("CategoryCard", () => {
     const category = {
-        strCategory: "Test Category",
-        strCategoryThumb: "https://example.com/test-image.jpg",
+        strCategory: "Test Category"
       };
       
   
