@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-import { BiLogIn } from "react-icons/Bi";
+import { BiLogIn } from "react-icons/bi";
 import { RiAccountPinBoxLine } from "react-icons/ri";
 import styles from "./Navigation.module.scss";
 
