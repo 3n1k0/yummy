@@ -2,10 +2,10 @@ import Link from "next/link";
 import { CategoryCard } from "..";
 import styles from "./CategoryCarousel.module.scss";
 
-const CategoryCarousel = ({ categories = [] }) => {
+const CategoryCarousel = ({ categories = [], heading }) => {
   return (
     <div className={styles.categoryWrapper}>
-      <h1>Featured Categories</h1>
+      <h1>{heading}</h1>
       <div className={styles.categories}>
         {categories
           .map((category) => (

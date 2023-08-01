@@ -14,7 +14,7 @@ export default function Home({ categories = [] }) {
       </Head>
       <main>
         <Hero />
-        <CategoryCarousel categories={categories}/>
+        <CategoryCarousel heading="Featured categories" categories={categories}/>
       </main>
     </>
   );
