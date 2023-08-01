@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { fetchRecipe } from "../api/fetchRecipe";
 
 export default function Recipe({ recipe }) {
@@ -19,7 +20,7 @@ export default function Recipe({ recipe }) {
   return (
     <div>
       <h1>{recipe.strMeal}</h1>
-      <img src={recipe.strMealThumb} alt={recipe.strMeal} />
+      <Image src={recipe.strMealThumb} alt={recipe.strMeal} />
       <h2>Ingredients</h2>
       <ul>
         {ingredients.map((ingredient) => (
