@@ -18,7 +18,7 @@ const CategoryCarousel = ({ categories = [], heading }) => {
         ))}
       </div>
       <Link className={styles.seeMoreLink} href="/categories">
-        View all categories
+        Show all categories
       </Link>
     </div>
   );
