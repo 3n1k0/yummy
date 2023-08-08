@@ -28,6 +28,7 @@ const CategoryCard = ({ category }) => {
           src={strCategoryThumb}
           alt={strCategory}
           style={{ objectFit: "cover" }}
+          fill
         />
       </div>
       <h3 className={styles.categoryHeading}>{strCategory}</h3>
