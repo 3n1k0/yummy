@@ -27,7 +27,6 @@ const CategoryCard = ({ category }) => {
           className={styles.categoryImage}
           src={strCategoryThumb}
           alt={strCategory}
-          style={{ objectFit: "cover" }}
           fill
         />
       </div>

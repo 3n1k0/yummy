@@ -9,7 +9,7 @@ const CategoryCarousel = ({ categories = [], heading }) => {
       <h1>{heading}</h1>
       <div className={styles.categories}>
         {categories.map((category) => (
-          <React.Fragment key={category.id}>
+          <React.Fragment key={category.idCategory}>
             <Link href="/category/[categoryId]" as={`/category/${category.id}`}>
               {category.name}
             </Link>
