@@ -1,19 +1,36 @@
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./CategoryCard.module.scss";
 
+
+function transformCategoryName(categoryName){
+  return categoryName.toLowerCase().replace(/ /g, "-"); 
+}
+
+
 const CategoryCard = ({ category }) => {
+  if (!category || !category.strCategoryThumb || !category.strCategory) {
+    return null; 
+  }
+
+  const {strCategory, strCategoryThumb} = category;
+
   return (
-    <Link className={styles.link} href={`category/${category.strCategory}`}>
+    <Link
+      data-testid="category-card-wrapper" 
+      className={styles.cardWrapper}
+      href={`category/${transformCategoryName(strCategory)}`}
+    >
       <div className={styles.categoryImageWrapper}>
         <Image
           className={styles.categoryImage}
-          src={category.strCategoryThumb}
-          fill={true}
-          alt={category.strCategory}
+          src={strCategoryThumb}
+          alt={strCategory}
+          style={{ objectFit: "cover" }}
         />
       </div>
-      <h3 className={styles.categoryHeading}>{category.strCategory}</h3>
+      <h3 className={styles.categoryHeading}>{strCategory}</h3>
     </Link>
   );
 };
