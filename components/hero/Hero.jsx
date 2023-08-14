@@ -6,8 +6,8 @@ const Hero = () => {
   return (
     <div className={styles.heroWrapper}>
       <Image
-        src="/hero.jpg"
-        alt="hero image"
+        src="https://static.llllllllllll.com/eniko/yummy/yummy-hero_original.jpg"
+        alt="hero imxage"
         fill
         className={styles.heroImage}
       />
