@@ -1,5 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+#Yummy Recipes
 ## Getting Started
 
 First, run the development server:
@@ -36,3 +35,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Continuous Integration
+
+This repository is configured with GitHub Actions workflows to enable Continuous Integration (CI). The CI process involves automatically building and testing the project whenever code changes are pushed to the main branch or pull requests are made.
+
+### Workflow Steps
+
+The CI workflow defined in [.github/workflows/ci.yml](.github/workflows/ci.yml) consists of the following steps:
+
+1. **Checkout code**: Pulls the latest code changes from the repository.
+
+2. **Set up Node.js**: Sets up the Node.js environment with version 16.
+
+3. **Install dependencies**: Installs project dependencies using npm.
+
+4. **Run tests**: Executes project tests to ensure code quality and correctness.
+
+5. **Build project**: Builds the project (e.g., compiling assets).
