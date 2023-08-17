@@ -1,5 +1,5 @@
 @import '../../styles/colors';
-@import '../../styles/responsive';
+@import '../../styles/mixins';
 @import '../../styles/font-sizes';
 
 .wrapper {
@@ -17,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: $primary-dark;
-  padding: $padding-small;
+  @include responsive-spacing(padding, 0.625, ratio-small);
 }
 
 .logo {
@@ -112,12 +112,12 @@
 
 .itemWrapper {
   display: flex;
-  margin: $margin-small;
+  @include responsive-spacing(margin, 0.625, ratio-small);
 }
 
 .iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: $margin-small/2
+  @include responsive-spacing(margin-left, 0.625, ratio-small);
 }
