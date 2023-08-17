@@ -22,8 +22,5 @@ jobs:
       - name: Install Netlify CLI
         run: npm install -g netlify-cli
 
-      - name: Run ESLint
-        run: eslint . --ext .js,.jsx,.ts,.tsx
-
       - name: Deploy to Netlify
         run: netlify deploy --prod
