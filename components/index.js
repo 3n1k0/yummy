@@ -4,4 +4,4 @@ export { default as CategoryCard } from "./category-card/CategoryCard";
 export { default as Hero } from "./hero/Hero";
 export { default as Button } from "./button/Button";
 export { default as Navigation } from "./navigation/Navigation";
-export {default as CategoryCarousel} from './category-carousel/CategoryCarousel'
+export { default as CategoryCarousel } from "./category-carousel/CategoryCarousel";

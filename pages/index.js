@@ -3,11 +3,9 @@ import Head from "next/head";
 import { CategoryCarousel, Hero } from "@/components";
 import { fetchCategories } from "./api/fetchCategories";
 
-
 export default function Home({ categories = [] }) {
-
   const categoriesToDisplay = categories.slice(1, 5);
-  
+
   return (
     <>
       <Head>
@@ -18,12 +16,14 @@ export default function Home({ categories = [] }) {
       </Head>
       <main>
         <Hero />
-        <CategoryCarousel heading="Featured categories" categories={categoriesToDisplay}/>
+        <CategoryCarousel
+          heading="Featured categories"
+          categories={categoriesToDisplay}
+        />
       </main>
     </>
   );
 }
-
 
 export async function getServerSideProps() {
   const data = await fetchCategories();

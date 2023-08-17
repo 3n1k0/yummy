@@ -46,10 +46,10 @@ const Footer = () => {
         <a href="#" data-testid="facebook-icon" className={styles.socialIcon}>
           <FaFacebook />
         </a>
-        <a href="#" data-testid="twitter-icon"  className={styles.socialIcon}>
+        <a href="#" data-testid="twitter-icon" className={styles.socialIcon}>
           <FaTwitter />
         </a>
-        <a href="#" data-testid="instagram-icon"  className={styles.socialIcon}>
+        <a href="#" data-testid="instagram-icon" className={styles.socialIcon}>
           <FaInstagram />
         </a>
       </div>

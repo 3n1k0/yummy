@@ -1,6 +1,6 @@
-@import '../../styles/colors';
-@import '../../styles/responsive';
-@import '../../styles/font-sizes';
+@import "../../styles/colors";
+@import "../../styles/responsive";
+@import "../../styles/font-sizes";
 
 .wrapper {
   display: flex;
@@ -23,7 +23,7 @@
 .logo {
   color: $primary-dark;
   text-decoration: none;
-  font-size: $body-large-size*2;
+  font-size: $body-large-size * 2;
   margin: 0 auto;
   position: absolute;
   left: 50%;
@@ -119,5 +119,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: $margin-small/2
+  margin-left: $margin-small/2;
 }
