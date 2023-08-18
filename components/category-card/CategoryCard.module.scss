@@ -1,5 +1,5 @@
-@import '../../styles/colors';
-@import '../../styles/mixins';
+@import "../../styles/colors";
+@import "../../styles/responsive";
 
 .categoryHeading {
   color: $primary-dark;
@@ -11,14 +11,13 @@
 }
 
 .categoryImageWrapper {
-  @include responsive-spacing(margin, 0.625, ratio-small);
-
   display: flex;
   flex-direction: column;
   border-radius: 3px;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin: $margin-small;
   height: 15rem;
   width: 15rem;
   position: relative;

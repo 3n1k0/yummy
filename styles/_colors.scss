@@ -1,43 +1,43 @@
 // Primary Colors
-$primary-color: #FF6B6B;
-$secondary-color: #6B66FF;
+$primary-color: #ff6b6b;
+$secondary-color: #6b66ff;
 
 // Base Colors
 $primary-dark: #000000;
-$primary-light: #FFFFFF;
+$primary-light: #ffffff;
 
 // Text Colors
 $text-color: #333333;
 $heading-color: #000000;
 
 // Background Colors
-$body-bg-color: #F2F2F2;
-$container-bg-color: #FFFFFF;
+$body-bg-color: #f2f2f2;
+$container-bg-color: #ffffff;
 
 // Accent Colors
-$accent-color-1: #FFD56B;
-$accent-color-2: #66FF88;
-$accent-color-3: #6BD2FF;
+$accent-color-1: #ffd56b;
+$accent-color-2: #66ff88;
+$accent-color-3: #6bd2ff;
 
 // Button Colors
 $button-bg-color: $primary-color;
-$button-text-color: #FFFFFF;
+$button-text-color: #ffffff;
 $button-hover-bg-color: darken($button-bg-color, 10%);
 
 // Input Colors
-$input-bg-color: #FFFFFF;
+$input-bg-color: #ffffff;
 $input-text-color: #333333;
-$input-border-color: #CCCCCC;
+$input-border-color: #cccccc;
 $input-placeholder-color: #999999;
 
 // Error Colors
-$error-color: #FF0000;
+$error-color: #ff0000;
 
 // Success Colors
-$success-color: #00FF00;
+$success-color: #00ff00;
 
 // Info Colors
-$info-color: #0099FF;
+$info-color: #0099ff;
 
 // Warning Colors
-$warning-color: #FF9900;
+$warning-color: #ff9900;

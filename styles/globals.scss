@@ -1,6 +1,5 @@
 @import "colors";
 @import "font-sizes";
-@import "mixins";
 
 * {
   box-sizing: border-box;
@@ -17,9 +16,12 @@ body {
 body {
   height: 100%;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+      to bottom,
       transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 a {
@@ -28,9 +30,6 @@ a {
 }
 
 h1 {
-  @include responsive-font-size(1.5, ratio-large);
-}
-
-h2 {
-  @include responsive-font-size(1, ratio-large);
+  font-size: $heading-1-size;
+  color: $secondary-color;
 }
