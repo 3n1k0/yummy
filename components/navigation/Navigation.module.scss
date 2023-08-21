@@ -33,9 +33,9 @@
 }
 
 .navLinks {
-  display: none;
-  background: $primary-light;
   width: 300px;
+  background: $primary-light;
+  display: none;
   z-index: 1;
   height: 100vh;
   position: fixed;
