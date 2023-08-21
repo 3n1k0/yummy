@@ -2,9 +2,8 @@ name: Continuous Deployment to Netlify
 
 on:
   push:
-  pull_request:
     branches:
-      -
+      - main
 jobs:
   deploy:
     name: Deploy to Netlify
