@@ -15,7 +15,6 @@
   "dependencies": {
     "@netlify/plugin-nextjs": "^4.39.1",
     "deploy": "^1.0.3",
-    "jest-environment-jsdom": "^29.5.0",
     "netlify-cli": "^15.10.0",
     "next": "13.2.3",
     "react": "18.2.0",
@@ -28,6 +27,8 @@
     "@testing-library/user-event": "14.4.3",
     "@types/testing-library__jest-dom": "5.14.5",
     "eslint": "8.35.0",
+    "commit-prompt": "^2.2.3",
+    "jest-environment-jsdom": "^29.5.0",
     "eslint-config-next": "13.2.3",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.0",
@@ -39,7 +40,6 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
   }
