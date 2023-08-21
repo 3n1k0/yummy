@@ -9,14 +9,24 @@ const sampleCategories = [
 ];
 
 test("renders the correct number of CategoryCard components", () => {
-  render(<CategoryCarousel categories={sampleCategories} heading="Featured Categories" />);
+  render(
+    <CategoryCarousel
+      categories={sampleCategories}
+      heading="Featured Categories"
+    />,
+  );
 
   const categoryCards = screen.queryAllByText(/Category \d/);
   expect(categoryCards).toHaveLength(sampleCategories.length);
 });
 
 test("renders the provided categories correctly", () => {
-  render(<CategoryCarousel categories={sampleCategories} heading="Featured Categories" />);
+  render(
+    <CategoryCarousel
+      categories={sampleCategories}
+      heading="Featured Categories"
+    />,
+  );
 
   sampleCategories.forEach((category) => {
     const categoryNameElement = screen.queryByText(category.name);
@@ -25,7 +35,12 @@ test("renders the provided categories correctly", () => {
 });
 
 test("renders the 'View all categories' link correctly", () => {
-  render(<CategoryCarousel categories={sampleCategories} heading="Featured Categories" />);
+  render(
+    <CategoryCarousel
+      categories={sampleCategories}
+      heading="Featured Categories"
+    />,
+  );
 
   const seeMoreLink = screen.queryByText("View all categories");
   expect(seeMoreLink).toBeInTheDocument();

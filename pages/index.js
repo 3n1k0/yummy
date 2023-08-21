@@ -3,10 +3,8 @@ import Head from "next/head";
 import { CategoryCarousel, Hero } from "@/components";
 import { fetchCategories } from "./api/fetchCategories";
 
-
 export default function Home({ categories = [] }) {
-
-  const categoriesToDisplay = categories.slice(1, 10);
+  const categoriesToDisplay = categories.slice(1, 5);
 
   return (
     <>
@@ -18,17 +16,19 @@ export default function Home({ categories = [] }) {
       </Head>
       <main>
         <Hero />
-        <CategoryCarousel heading="Featured categories" categories={categoriesToDisplay} />
+        <CategoryCarousel
+          heading="Featured categories"
+          categories={categoriesToDisplay}
+        />
       </main>
     </>
   );
 }
 
-
 export async function getServerSideProps() {
   const data = await fetchCategories();
 
   return {
-    props: { categories: data.categories }
+    props: { categories: data.categories }, // will be passed to the page component as props
   };
 }

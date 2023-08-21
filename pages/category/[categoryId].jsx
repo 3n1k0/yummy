@@ -24,7 +24,7 @@ export async function getServerSideProps(context) {
 
   if (categoryId) {
     const res = await fetch(
-      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryId}`
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryId}`,
     );
     const data = await res.json();
     recipes = data.meals || [];

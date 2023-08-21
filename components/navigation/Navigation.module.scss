@@ -1,6 +1,6 @@
-@import '../../styles/colors';
-@import '../../styles/mixins';
-@import '../../styles/font-sizes';
+@import "../../styles/colors";
+@import "../../styles/responsive";
+@import "../../styles/font-sizes";
 
 .wrapper {
   display: flex;
@@ -17,13 +17,13 @@
   justify-content: space-between;
   align-items: center;
   background-color: $primary-dark;
-  @include responsive-spacing(padding, 0.625, ratio-small);
+  padding: $padding-small;
 }
 
 .logo {
   color: $primary-dark;
   text-decoration: none;
-  font-size: $body-large-size*2;
+  font-size: $body-large-size * 2;
   margin: 0 auto;
   position: absolute;
   left: 50%;
@@ -112,12 +112,12 @@
 
 .itemWrapper {
   display: flex;
-  @include responsive-spacing(margin, 0.625, ratio-small);
+  margin: $margin-small;
 }
 
 .iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  @include responsive-spacing(margin-left, 0.625, ratio-small);
+  margin-left: $margin-small/2;
 }

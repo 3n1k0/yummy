@@ -5,12 +5,12 @@ import Navigation from "./Navigation";
 describe("Navigation", () => {
   const navigationItems = [
     { id: 1, url: "/", label: "Home" },
-    { id: 2, url: "/categories", label: "Categories" }
+    { id: 2, url: "/categories", label: "Categories" },
   ];
 
   it("renders navigation items correctly", async () => {
     const { findByTestId } = render(
-      <Navigation navigationItems={navigationItems} />
+      <Navigation navigationItems={navigationItems} />,
     );
 
     await navigationItems.forEach(async (item) => {
@@ -21,7 +21,7 @@ describe("Navigation", () => {
 
   it("renders user login links correctly", async () => {
     const { findByTestId } = render(
-      <Navigation navigationItems={navigationItems} />
+      <Navigation navigationItems={navigationItems} />,
     );
 
     const loginLink = await findByTestId("login");

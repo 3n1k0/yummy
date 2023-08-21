@@ -37,7 +37,7 @@ describe("Footer", () => {
     render(<Footer />);
 
     const copyrightText = screen.getByText(
-      /© 2023 Your Company Name. All rights reserved./i
+      /© 2023 Your Company Name. All rights reserved./i,
     );
 
     expect(copyrightText).toBeInTheDocument();
