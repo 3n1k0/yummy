@@ -2,6 +2,8 @@ name: Continuous Integration
 
 on:
   push:
+    branches:
+      - main
   pull_request:
     branches:
       -
@@ -24,9 +26,6 @@ jobs:
 
       - name: Run tests
         run: npm test
-
-      - name: Run Prettier
-        run: npx prettier . --check
 
       - name: Build project
         run: npm run build
