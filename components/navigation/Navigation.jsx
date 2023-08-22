@@ -42,7 +42,7 @@ const Navigation = ({ navigationItems }) => {
 
       <div className={styles.logo}>
         <Link href="/">
-          <p>yummy</p>
+          <h1>yummy</h1>
         </Link>
       </div>
 

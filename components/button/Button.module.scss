@@ -1,21 +1,23 @@
 @import "../../styles/colors";
 @import "../../styles/font-sizes";
-@import "../../styles/responsive";
+@import "../../styles/responsive-sizes";
+@import "../../styles/mixins";
 
 .button {
   background: $primary-dark;
   color: $button-text-color;
   border: none;
   cursor: pointer;
-  font-size: $body-normal-size;
-  padding: $padding-small $padding-medium $padding-small;
+  @include responsive-font-size(body-normal);
   text-align: center;
   min-width: 10em;
   max-width: 20em;
   height: 3em;
-  border-radius: $border-radius-large;
-}
 
-.button:hover {
-  opacity: 0.8;
+  @include responsive-spacing(
+    margin,
+    map-get($margin, margin-small),
+    map-get($margin, margin-medium),
+    map-get($margin, margin-large)
+  );
 }

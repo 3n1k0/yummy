@@ -1,5 +1,5 @@
 @import "../../styles/colors";
-@import "../../styles/responsive";
+@import "../../styles/responsive-sizes";
 @import "../../styles/font-sizes";
 
 .wrapper {
@@ -17,13 +17,13 @@
   justify-content: space-between;
   align-items: center;
   background-color: $primary-dark;
-  padding: $padding-small;
+  // padding: $padding-small;
 }
 
 .logo {
   color: $primary-dark;
   text-decoration: none;
-  font-size: $body-large-size * 2;
+  // font-size: $body-large-size * 2;
   margin: 0 auto;
   position: absolute;
   left: 50%;
@@ -112,12 +112,12 @@
 
 .itemWrapper {
   display: flex;
-  margin: $margin-small;
+  // margin: $margin-small;
 }
 
 .iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: $margin-small/2;
+  // margin-left: $margin-small/2;
 }
