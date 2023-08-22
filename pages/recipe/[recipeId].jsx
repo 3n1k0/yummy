@@ -20,7 +20,8 @@ export default function Recipe({ recipe }) {
   return (
     <div>
       <Image src={recipe.strMealThumb} alt={recipe.strMeal} />
-      <h1>{recipe.strMeal} </h1>
+      <h1>{recipe.strMeal}</h1>
+
       <h2>Ingredients</h2>
       <ul>
         {ingredients.map((ingredient) => (
