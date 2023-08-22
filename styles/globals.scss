@@ -25,12 +25,12 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 h1 {
   color: $secondary-color;
   @include responsive-font-size(h1);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
