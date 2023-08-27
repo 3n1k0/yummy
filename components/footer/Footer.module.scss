@@ -1,16 +1,18 @@
-/* Footer.module.scss */
+@import "../../styles/mixins";
+@import "../../styles/colors";
 
 .footerWrapper {
-  background-color: #333;
-  color: #fff;
-  padding: 20px 0;
+  background-color: $text-color;
+  color: $primary-light;
+
+  @include responsive-spacing(padding, map-get($padding, padding-large));
 }
 
 .footerContent {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  @include responsive-spacing(margin-bottom, map-get($margin, margin-large));
 }
 
 .footerColumn {
@@ -21,12 +23,15 @@
 }
 
 .footerItem {
-  margin: 10px 0;
+  @include responsive-spacing(
+    margin,
+    map-get($margin, margin-small) map-get($margin, margin-large)
+  );
   text-align: center;
 }
 
 .footerLink {
-  color: #fff;
+  color: $primary-light;
   text-decoration: none;
   font-size: 14px;
 
@@ -43,7 +48,7 @@
 .socialIcon {
   font-size: 24px;
   margin: 0 10px;
-  color: #fff;
+  color: $primary-light;
 
   &:hover {
     color: #ccc;

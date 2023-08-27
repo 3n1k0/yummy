@@ -1,4 +1,5 @@
 import { Button } from "..";
+import Divider from "../divider/Divider";
 import styles from "./Search.module.scss";
 
 const Search = () => {
@@ -13,6 +14,7 @@ const Search = () => {
         id="search"
         name="search"
       />
+      <Divider />
       <Button type="submit" text="Search" />
     </form>
   );
