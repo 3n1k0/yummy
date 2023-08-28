@@ -1,3 +1,5 @@
+@import "../../styles/mixins";
+
 .search {
   width: 100%;
   display: flex;
@@ -8,10 +10,8 @@
 }
 
 .input {
-  height: 70px;
   min-width: 20em;
   border-radius: 30px;
-  margin-bottom: 30px;
   border: 1px solid grey;
   padding: 20px;
   font-size: 20px;
