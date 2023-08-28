@@ -9,8 +9,41 @@ $ratios: (
   ratio-small: 1,
   ratio-medium: 1.2,
   ratio-large: 1.5,
-  ratio-extra-large: 1.8,
 );
 
-$base-font-size: 16px;
-$em-per-rem: 1em;
+$sizes: (
+  size-small: 1,
+  size-medium: 1.2,
+  size-large: 1.5,
+);
+
+$spacing: (
+  spacing-small: 10px,
+  spacing-medium: 20px,
+  spacing-large: 30px,
+);
+
+$padding: (
+  padding-small: 10px,
+  padding-medium: 20px,
+  padding-large: 30px,
+);
+
+$margin: (
+  margin-small: 10px,
+  margin-medium: 20px,
+  margin-large: 30px,
+  margin-extra-large: 40px,
+);
+
+$border-radius: (
+  border-radius-small: 5px,
+  border-radius-medium: 10px,
+  border-radius-large: 15px,
+);
+
+$line-height: (
+  line-height-small: 1,
+  line-height-medium: 1.2,
+  line-height-large: 1.5,
+);
