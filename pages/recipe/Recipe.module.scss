@@ -1,0 +1,32 @@
+@import "../../styles/mixins";
+
+.recipeContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  @include responsive-spacing(padding, map-get($padding, padding-small));
+}
+
+.recipeHeader {
+  text-align: center;
+  @include responsive-spacing(margin-bottom, map-get($margin, margin-small));
+}
+
+.recipeImage {
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.ingredientsList {
+  list-style: none;
+  padding: 0;
+  @include responsive-spacing(margin, map-get($margin, margin-small), 0);
+}
+
+.ingredientsListItem {
+  @include responsive-spacing(margin-bottom, map-get($margin, margin-small));
+}
+
+.instructions {
+  @include responsive-spacing(margin-top, map-get($margin, margin-small));
+}

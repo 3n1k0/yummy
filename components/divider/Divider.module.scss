@@ -1,7 +1,7 @@
-@import "/styles/responsive";
+@import "../../styles/responsive-sizes";
 
 .divider {
-  height: $size-small;
+  height: map-get($spacing, spacing-large);
   width: 100%;
   position: relative;
 }

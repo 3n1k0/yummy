@@ -1,16 +1,23 @@
-// Base Font Size
-$base-font-size: 18px;
+$base-font-size: 16px;
 
-// Heading Font Sizes
-$heading-1-size: $base-font-size * 2;
-$heading-2-size: $base-font-size * 1.8;
-$heading-3-size: $base-font-size * 1.6;
-$heading-4-size: $base-font-size * 1.4;
-$heading-5-size: $base-font-size * 1.2;
-$heading-6-size: $base-font-size * 1.1;
+$heading-sizes: (
+  h1: $base-font-size * 2,
+  h2: $base-font-size * 1.8,
+  h3: $base-font-size * 1.6,
+  h4: $base-font-size * 1.4,
+  h5: $base-font-size * 1.2,
+  h6: $base-font-size * 1.1,
+);
 
-// Body Font Sizes
-$body-small-size: $base-font-size * 0.8;
-$body-normal-size: $base-font-size;
-$body-large-size: $base-font-size * 1.2;
-$body-extra-large-size: $base-font-size * 1.4;
+$font-ratios: (
+  h1: 2,
+  h2: 1.8,
+  h3: 1.6,
+  h4: 1.4,
+  h5: 1.2,
+  h6: 1.1,
+  body-small: 0.8,
+  body-normal: 1,
+  body-large: 1.2,
+  body-extra-large: 1.4,
+);

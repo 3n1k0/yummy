@@ -10,7 +10,7 @@
 }
 
 .input {
-  min-width: 20em;
+  @include responsive-spacing(min-width, map-get($spacing, spacing-large));
   border-radius: 30px;
   border: 1px solid grey;
   padding: 20px;

@@ -29,6 +29,6 @@ export async function getServerSideProps() {
   const data = await fetchCategories();
 
   return {
-    props: { categories: data.categories }, // will be passed to the page component as props
+    props: { categories: data.categories }
   };
 }

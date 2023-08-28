@@ -1,6 +1,7 @@
 import styles from "./Hero.module.scss";
 import Image from "next/image";
 import { Search } from "..";
+import Divider from "../divider/Divider";
 
 const Hero = () => {
   return (

@@ -1,5 +1,6 @@
 @import "colors";
 @import "font-sizes";
+@import "mixins";
 
 * {
   box-sizing: border-box;
@@ -24,12 +25,12 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+h1 {
+  color: $secondary-color;
+  @include responsive-font-size(h1);
+}
+
 a {
   color: inherit;
   text-decoration: none;
-}
-
-h1 {
-  font-size: $heading-1-size;
-  color: $secondary-color;
 }

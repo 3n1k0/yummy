@@ -1,70 +1,41 @@
 @import "responsive-sizes";
+@import "font-sizes";
 
-@mixin responsive-spacing($property, $size, $ratio: ratio-small) {
-  #{$property}-left: $size * $em-per-rem;
-  #{$property}-right: $size * $em-per-rem;
-  #{$property}-top: $size * $em-per-rem;
-  #{$property}-bottom: $size * $em-per-rem;
+$base-font-size: 16px;
+
+@mixin responsive-spacing(
+  $property,
+  $size-small,
+  $size-medium: null,
+  $size-large: null
+) {
+  @media (min-width: map-get($breakpoints, breakpoint-small)) {
+    #{$property}: $size-small;
+  }
 
   @media (min-width: map-get($breakpoints, breakpoint-medium)) {
-    $adjusted-size: $size * map-get($ratios, $ratio);
-    #{$property}-left: $adjusted-size * $em-per-rem;
-    #{$property}-right: $adjusted-size * $em-per-rem;
-    #{$property}-top: $adjusted-size * $em-per-rem;
-    #{$property}-bottom: $adjusted-size * $em-per-rem;
+    @if $size-medium !=null {
+      #{$property}: $size-medium;
+    }
   }
 
   @media (min-width: map-get($breakpoints, breakpoint-large)) {
-    $adjusted-size: $size * map-get($ratios, ratio-medium);
-    #{$property}-left: $adjusted-size * $em-per-rem;
-    #{$property}-right: $adjusted-size * $em-per-rem;
-    #{$property}-top: $adjusted-size * $em-per-rem;
-    #{$property}-bottom: $adjusted-size * $em-per-rem;
-  }
-
-  @media (min-width: map-get($breakpoints, breakpoint-extra-large)) {
-    $adjusted-size: $size * map-get($ratios, ratio-large);
-    #{$property}-left: $adjusted-size * $em-per-rem;
-    #{$property}-right: $adjusted-size * $em-per-rem;
-    #{$property}-top: $adjusted-size * $em-per-rem;
-    #{$property}-bottom: $adjusted-size * $em-per-rem;
+    @if $size-large !=null {
+      #{$property}: $size-large;
+    }
   }
 }
 
-@mixin responsive-border-radius($size, $ratio: ratio-small) {
-  border-radius: $size * $em-per-rem;
+@mixin responsive-font-size($ratio-key) {
+  $ratio: map-get($font-ratios, $ratio-key);
+
+  font-size: $base-font-size * $ratio;
 
   @media (min-width: map-get($breakpoints, breakpoint-medium)) {
-    $adjusted-size: $size * map-get($ratios, $ratio);
-    border-radius: $adjusted-size * $em-per-rem;
+    font-size: $base-font-size * $ratio * 1.2;
   }
 
   @media (min-width: map-get($breakpoints, breakpoint-large)) {
-    $adjusted-size: $size * map-get($ratios, ratio-medium);
-    border-radius: $adjusted-size * $em-per-rem;
-  }
-
-  @media (min-width: map-get($breakpoints, breakpoint-extra-large)) {
-    $adjusted-size: $size * map-get($ratios, ratio-large);
-    border-radius: $adjusted-size * $em-per-rem;
-  }
-}
-
-@mixin responsive-font-size($size, $ratio: ratio-small) {
-  font-size: $size * $em-per-rem;
-
-  @media (min-width: map-get($breakpoints, breakpoint-medium)) {
-    $adjusted-size: $size * map-get($ratios, $ratio);
-    font-size: $adjusted-size * $em-per-rem;
-  }
-
-  @media (min-width: map-get($breakpoints, breakpoint-large)) {
-    $adjusted-size: $size * map-get($ratios, ratio-medium);
-    font-size: $adjusted-size * $em-per-rem;
-  }
-
-  @media (min-width: map-get($breakpoints, breakpoint-extra-large)) {
-    $adjusted-size: $size * map-get($ratios, ratio-large);
-    font-size: $adjusted-size * $em-per-rem;
+    font-size: $base-font-size * $ratio * 1.4;
   }
 }
