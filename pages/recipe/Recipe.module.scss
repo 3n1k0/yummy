@@ -1,12 +1,14 @@
+@import "../../styles/mixins";
+
 .recipeContainer {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  @include responsive-spacing(padding, map-get($padding, padding-small));
 }
 
 .recipeHeader {
   text-align: center;
-  margin-bottom: 20px;
+  @include responsive-spacing(margin-bottom, map-get($margin, margin-small));
 }
 
 .recipeImage {
@@ -18,13 +20,13 @@
 .ingredientsList {
   list-style: none;
   padding: 0;
-  margin: 20px 0;
+  @include responsive-spacing(margin, map-get($margin, margin-small), 0);
 }
 
 .ingredientsListItem {
-  margin-bottom: 5px;
+  @include responsive-spacing(margin-bottom, map-get($margin, margin-small));
 }
 
 .instructions {
-  margin-top: 20px;
+  @include responsive-spacing(margin-top, map-get($margin, margin-small));
 }
