@@ -1,4 +1,6 @@
+import React from "react";
 import Image from "next/image";
+import styles from "./Recipe.module.scss";
 import { fetchRecipe } from "../api/fetchRecipe";
 
 export default function Recipe({ recipe }) {
@@ -18,18 +20,25 @@ export default function Recipe({ recipe }) {
   }
 
   return (
-    <div>
-      <Image src={recipe.strMealThumb} alt={recipe.strMeal} />
-      <h1>{recipe.strMeal}</h1>
-
+    <div className={styles.recipeContainer}>
+      <h1 className={styles.recipeHeader}>{recipe.strMeal}</h1>
+      <Image
+        className={styles.recipeImage}
+        width={300}
+        height={300}
+        src={recipe.strMealThumb}
+        alt={recipe.strMeal}
+      />
       <h2>Ingredients</h2>
-      <ul>
-        {ingredients.map((ingredient) => (
-          <li key={ingredient}>{ingredient}</li>
+      <ul className={styles.ingredientsList}>
+        {ingredients.map((ingredient, index) => (
+          <li className={styles.ingredientsListItem} key={index}>
+            {ingredient}
+          </li>
         ))}
       </ul>
       <h2>Instructions</h2>
-      <p>{recipe.strInstructions}</p>
+      <p className={styles.instructions}>{recipe.strInstructions}</p>
     </div>
   );
 }
