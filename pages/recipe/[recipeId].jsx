@@ -8,6 +8,8 @@ export default function Recipe({ recipe }) {
     return <div>Loading...</div>;
   }
 
+  console.log(recipe);
+
   const ingredients = [];
   for (let i = 1; i <= 20; i++) {
     const ingredient = recipe[`strIngredient${i}`];
