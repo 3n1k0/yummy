@@ -1,0 +1,32 @@
+/* Recipe.module.scss */
+
+.recipeContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.recipeHeader {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.recipeImage {
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.ingredientsList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.ingredientsListItem {
+  margin-bottom: 5px;
+}
+
+.instructions {
+  margin-top: 20px;
+}
