@@ -1,30 +1,16 @@
-import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { getRecipes } from "@/database/recipes";
 
-export default function CategoryPage({ categories, recipes }) {
-  const router = useRouter();
-  const { categoryId } = router.query;
-
-  const category = categories.find((cat) => cat.strCategory === categoryId);
-
-  if (!category) {
+export default function Category({ recipes, categoryId }) {
+  if (!categoryId) {
     return <div>Loading...</div>;
   }
-
-  const categoryRecipes = recipes.filter(
-    (recipe) => recipe.category === categoryId,
-  );
-
   return (
     <div>
-      <h1>{category.strCategory}</h1>
-      <Link href="/categories">Back to Categories</Link>
+      <h1>{categoryId}</h1>
       <ul>
-        {categoryRecipes.map((recipe) => (
-          <li key={recipe._id}>
-            <Link href={`/recipe/${recipe._id}`}>{recipe.name}</Link>
+        {recipes.map((recipe) => (
+          <li key={recipe.idMeal}>
+            <Link href={`/recipe/${recipe.idMeal}`}>{recipe.strMeal}</Link>
           </li>
         ))}
       </ul>
@@ -32,22 +18,22 @@ export default function CategoryPage({ categories, recipes }) {
   );
 }
 
-export async function getServerSideProps({ params }) {
-  const { categoryId } = params;
+export async function getServerSideProps(context) {
+  const { categoryId } = context.query;
+  let recipes = [];
 
-  const response = await fetch(
-    "https://www.themealdb.com/api/json/v1/1/categories.php",
-  );
-  const data = await response.json();
-  const mealDbCategories = data.categories || [];
-
-  // Fetch recipes from MongoDB
-  const { recipes } = await getRecipes();
+  if (categoryId) {
+    const res = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/filter.php?c=${categoryId}`,
+    );
+    const data = await res.json();
+    recipes = data.meals || [];
+  }
 
   return {
     props: {
-      categories: mealDbCategories,
       recipes,
+      categoryId,
     },
   };
 }

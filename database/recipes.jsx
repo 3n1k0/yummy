@@ -36,7 +36,7 @@ export async function getRecipesFromMealDB(categoryId) {
 export async function getMongoDBRecipes() {
   try {
     if (!recipesCollection) await init();
-    const result = await recipesCollection.find({}).limit(20).toArray();
+    const result = await recipesCollection.find({}).toArray();
 
     const serializedResult = result.map((recipe) => ({
       ...recipe,
@@ -77,9 +77,3 @@ export async function deleteRecipe(recipeId) {
     throw new Error("Failed to delete recipe");
   }
 }
-
-export default {
-  getMongoDBRecipes,
-  createRecipe,
-  deleteRecipe,
-};

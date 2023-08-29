@@ -1,13 +1,19 @@
-import { getRecipes, createRecipe } from "@/database/recipes";
+import {
+  getMongoDBRecipes,
+  getRecipesFromMealDB,
+  createRecipe,
+} from "@/database/recipes";
 
 const handler = async (req, res) => {
   if (req.method === "GET") {
     try {
-      const { recipes, error } = await getRecipes();
+      const mealDbRecipes = await getRecipesFromMealDB();
 
-      if (error) throw new Error(error);
+      const mongoDbRecipes = await getMongoDBRecipes();
 
-      return res.status(200).json({ recipes });
+      const allRecipes = [...mealDbRecipes, ...mongoDbRecipes];
+
+      return res.status(200).json({ recipes: allRecipes });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }

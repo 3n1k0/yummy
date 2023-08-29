@@ -1,13 +1,14 @@
 import React from 'react';
 import { getMongoDBRecipes } from '@/database/recipes';
+import { RecipeCard } from '@/components';
 
 export default function RecipesPage({ recipes }) {
   return (
     <div>
       <ul>
-        <h1>hello</h1>
+        <h1>My recipes</h1>
         {recipes.map((recipe) => (
-          <li key={recipe._id}>{recipe.name}</li>
+          <li key={recipe._id}><RecipeCard onDelete={()=>{console.log('recipe deleted')}} recipe={recipe}/></li>
         ))}
       </ul>
     </div>
