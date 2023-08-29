@@ -7,8 +7,12 @@ import {
 export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
+      const mealDbRecipes = await getRecipesFromMealDB();
       const mongoDbRecipes = await getMongoDBRecipes();
-      return res.status(200).json({ recipes: mongoDbRecipes });
+      const allRecipes = [...mealDbRecipes, ...mongoDbRecipes];
+      if (error) throw new Error(error);
+
+      return res.status(200).json({ recipes: allRecipes });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
