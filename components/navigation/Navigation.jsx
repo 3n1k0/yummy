@@ -11,6 +11,10 @@ const Navigation = ({ navigationItems }) => {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={styles.wrapper}>
       <div className={styles.burger} onClick={toggleMenu}>
@@ -26,13 +30,15 @@ const Navigation = ({ navigationItems }) => {
       </div>
 
       <div className={`${styles.navLinks} ${menuOpen ? styles.active : ""}`}>
-        <p className={styles.navLogo}>LOGO</p>
+        <p className={styles.navLogo}>YUMMY</p>
         <ul className={styles.navLinkWrapper}>
           {navigationItems.map((item) => {
             return (
               <li key={item.id}>
                 <div>
-                  <Link href={item.url}>{item.label}</Link>
+                  <Link href={item.url} onClick={closeMenu}>
+                    {item.label}
+                  </Link>
                 </div>
               </li>
             );

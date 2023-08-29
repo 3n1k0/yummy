@@ -1,56 +1,98 @@
-import React, { useState } from 'react';
-import styles from './RecipeInputForm.module.scss';
+import React, { useState } from "react";
+import styles from "./RecipeInputForm.module.scss";
 
 function RecipeInputForm() {
-    const [recipeName, setRecipeName] = useState('');
-    const [ingredients, setIngredients] = useState('');
-    const [instructions, setInstructions] = useState('');
-    const [cookingTime, setCookingTime] = useState('');
+  const [recipeName, setRecipeName] = useState("");
+  const [category, setCategory] = useState("");
+  const [instructions, setInstructions] = useState("");
+  const [imageURL, setImageURL] = useState("");
+  const [ingredients, setIngredients] = useState("");
 
-    return (
-        <form className={styles.recipeForm}>
-            <label className={styles.label}>
-                Recipe Name:
-                <input
-                    className={styles.input}
-                    type="text"
-                    value={recipeName}
-                    onChange={(e) => setRecipeName(e.target.value)}
-                    required
-                />
-            </label>
-            <label className={styles.label}>
-                Ingredients:
-                <textarea
-                    className={styles.textarea}
-                    value={ingredients}
-                    onChange={(e) => setIngredients(e.target.value)}
-                    required
-                />
-            </label>
-            <label className={styles.label}>
-                Instructions:
-                <textarea
-                    className={styles.textarea}
-                    value={instructions}
-                    onChange={(e) => setInstructions(e.target.value)}
-                    required
-                />
-            </label>
-            <label className={styles.label}>
-                Cooking Time:
-                <input
-                    className={styles.input}
-                    type="text"
-                    value={cookingTime}
-                    onChange={(e) => setCookingTime(e.target.value)}
-                />
-            </label>
-            <button className={styles.submitButton} type="submit">
-                Submit Recipe
-            </button>
-        </form>
-    );
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const recipeData = {
+      name: recipeName,
+      category,
+      instructions,
+      imageURL,
+      ingredients,
+    };
+
+    try {
+      const response = await fetch("/api/recipes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(recipeData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setRecipeName("");
+        setCategory("");
+        setInstructions("");
+        setImageURL("");
+        setIngredients("");
+      } else {
+        const errorMessage = await response.text();
+        console.error("Failed to submit recipe:", errorMessage);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <form className={styles.recipeForm} onSubmit={handleSubmit}>
+      <label>
+        Recipe Name:
+        <input
+          type="text"
+          value={recipeName}
+          onChange={(e) => setRecipeName(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        Category:
+        <input
+          type="text"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        />
+      </label>
+      <label>
+        Instructions:
+        <textarea
+          value={instructions}
+          onChange={(e) => setInstructions(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        Image URL:
+        <input
+          type="text"
+          value={imageURL}
+          onChange={(e) => setImageURL(e.target.value)}
+        />
+      </label>
+      <label>
+        Ingredient 1:
+        <input
+          type="text"
+          value={ingredients}
+          onChange={(e) => setIngredients(e.target.value)}
+        />
+      </label>
+      {isSubmitted && <p>Recipe submitted successfully!</p>}
+      <button type="submit">Submit Recipe</button>
+    </form>
+  );
 }
 
 export default RecipeInputForm;
