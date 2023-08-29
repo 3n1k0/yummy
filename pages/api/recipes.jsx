@@ -2,6 +2,7 @@ import {
   getMongoDBRecipes,
   createRecipe,
   deleteRecipe,
+  getRecipesFromMealDB,
 } from "@/database/recipes";
 
 export default async function handler(req, res) {
