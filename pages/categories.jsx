@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { getMongoDBRecipes, getRecipesFromMealDB } from "@/database/recipes";
 
 export default function Categories({ categories, recipes }) {
   return (
@@ -20,14 +21,13 @@ export default function Categories({ categories, recipes }) {
   );
 }
 
-export async function getServerSideProps({ params }) {
-  const { categoryId } = params;
+export async function getServerSideProps(context) {
+  const { categoryId } = context.query;
 
   const response = await fetch(
     "https://www.themealdb.com/api/json/v1/1/categories.php",
   );
   const data = await response.json();
-  console.log(response);
   const mealDbCategories = data.categories || [];
 
   let recipes = [];
