@@ -5,8 +5,8 @@ import Footer from "@/components/footer/Footer";
 const navigationItems = [
   { id: 1, url: "/", label: "Home" },
   { id: 2, url: "/categories", label: "Categories" },
-  { id: 2, url: "/my-recipes", label: "My Recipes" },
-  { id: 2, url: "/submit-recipe", label: "Submit Recipe" },
+  { id: 3, url: "/my-recipes", label: "My Recipes" },
+  { id: 4, url: "/submit-recipe", label: "Submit Recipe" },
 ];
 
 const Layout = ({ children }) => {

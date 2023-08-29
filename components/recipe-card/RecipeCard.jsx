@@ -2,7 +2,7 @@ import React from "react";
 
 function RecipeCard({ recipe, onDelete }) {
   const handleDeleteClick = () => {
-    onDelete(recipe.id);
+    onDelete(recipe._id);
   };
 
   const { imageURL } = recipe;

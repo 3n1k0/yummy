@@ -1,33 +1,22 @@
 import {
   getMongoDBRecipes,
-  getRecipesFromMealDB,
   createRecipe,
+  deleteRecipe,
 } from "@/database/recipes";
 
-const handler = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method === "GET") {
     try {
-      const mealDbRecipes = await getRecipesFromMealDB();
-
       const mongoDbRecipes = await getMongoDBRecipes();
-
-      const allRecipes = [...mealDbRecipes, ...mongoDbRecipes];
-
-      return res.status(200).json({ recipes: allRecipes });
+      return res.status(200).json({ recipes: mongoDbRecipes });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
   } else if (req.method === "POST") {
     try {
-      const { name, category, instructions, imageURL, ingredients } = req.body;
+      const { name, category, instructions } = req.body;
 
-      const result = await createRecipe(
-        name,
-        category,
-        instructions,
-        imageURL,
-        ingredients,
-      );
+      const result = await createRecipe(name, category, instructions);
 
       return res.status(201).json({ recipe: result });
     } catch (error) {
@@ -51,8 +40,6 @@ const handler = async (req, res) => {
     }
   }
 
-  res.setHeader("Allow", ["GET", "POST"]);
+  res.setHeader("Allow", ["GET", "POST", "DELETE"]);
   res.status(405).end(`Method ${req.method} is not allowed.`);
-};
-
-export default handler;
+}

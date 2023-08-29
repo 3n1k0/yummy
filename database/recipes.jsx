@@ -1,4 +1,5 @@
 import clientPromise from "./index";
+import { ObjectId } from "mongodb";
 
 let recipesCollection;
 
@@ -68,9 +69,17 @@ export async function createRecipe(name, category, instructions) {
 export async function deleteRecipe(recipeId) {
   try {
     if (!recipesCollection) await init();
+
+    console.log("Deleting recipe with ID:", recipeId);
+
     const result = await recipesCollection.deleteOne({
-      _id: recipeId,
+      _id: new ObjectId(recipeId),
     });
+
+    if (result.deletedCount === 0) {
+      console.log("Recipe not found for deletion");
+    }
+
     return result.deletedCount;
   } catch (error) {
     console.error("Error deleting recipe:", error);
