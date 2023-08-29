@@ -59,7 +59,17 @@ export async function createRecipe(name, category, instructions) {
       category,
       instructions,
     });
-    return result.ops[0];
+
+    console.log("Insert result:", result);
+
+    if (result && result.insertedId) {
+      const insertedId = result.insertedId.toString();
+      console.log("Inserted recipe ID:", insertedId);
+      return insertedId;
+    } else {
+      console.error("Failed to insert recipe:", result);
+      throw new Error("Failed to insert recipe");
+    }
   } catch (error) {
     console.error("Error creating recipe:", error);
     throw new Error("Failed to create recipe");

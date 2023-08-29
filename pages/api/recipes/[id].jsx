@@ -1,26 +1,37 @@
-// pages/api/recipes/[id].js
 import { updateRecipe, deleteRecipe } from "@/database/recipes";
 
 const handler = async (req, res) => {
   const { id } = req.query;
 
-  if (req.method === "PUT") {
+  if (req.method === "GET") {
     try {
-      const { name, category, imageURL, instructions, ingredients } = req.body;
+      const mealDbRecipes = await getRecipesFromMealDB();
+      const mongoDbRecipes = await getMongoDBRecipes();
+      const allRecipes = [...mealDbRecipes, ...mongoDbRecipes];
 
-      const result = await updateRecipe(
-        id,
+      if (error) throw new Error(error);
+
+      return res.status(200).json({ recipes: allRecipes });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+  } else if (req.method === "POST") {
+    try {
+      const { name, category, instructions, imageURL, ingredients } = req.body;
+
+      const result = await createRecipe(
         name,
         category,
-        imageURL,
         instructions,
+        imageURL,
         ingredients,
       );
 
-      return res.status(200).json({ recipe: result });
+      console.log(result);
+      return res.status(201).json({ recipe: result });
     } catch (error) {
-      console.error(error);
-      return res.status(500).json({ error: "Failed to update recipe" });
+      console.log(error);
+      return res.status(500).json({ error: "Failed to create recipe" });
     }
   } else if (req.method === "DELETE") {
     try {
@@ -33,7 +44,7 @@ const handler = async (req, res) => {
     }
   }
 
-  res.setHeader("Allow", ["PUT", "DELETE"]);
+  res.setHeader("Allow", ["GET", "POST", "DELETE"]);
   res.status(405).end(`Method ${req.method} is not allowed.`);
 };
 

@@ -32,7 +32,6 @@ function RecipeInputForm() {
 
       if (response.ok) {
         setIsSubmitted(true);
-        // Reset form fields after successful submission
         setRecipeName("");
         setCategory("");
         setInstructions("");
