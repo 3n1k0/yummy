@@ -26,8 +26,6 @@ export default function RecipesPage({ recipes }) {
     }
   };
 
-  useEffect(() => {}, [currentRecipes]);
-
   return (
     <div>
       <ul>

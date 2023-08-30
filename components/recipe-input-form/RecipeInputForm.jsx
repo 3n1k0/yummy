@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import styles from "./RecipeInputForm.module.scss";
 
-function RecipeInputForm() {
-  const [recipeName, setRecipeName] = useState("");
-  const [category, setCategory] = useState("");
-  const [instructions, setInstructions] = useState("");
-  const [imageURL, setImageURL] = useState("");
-  const [ingredients, setIngredients] = useState("");
+const initialFormData = {
+  recipeName: "",
+  category: "",
+  instructions: "",
+  imageURL: "",
+  ingredients: "",
+};
 
+function RecipeInputForm() {
+  const [formData, setFormData] = useState(initialFormData);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const recipeData = {
-      name: recipeName,
-      category,
-      instructions,
-      imageURL,
-      ingredients,
-    };
 
     try {
       const response = await fetch("/api/recipes", {
@@ -27,22 +27,18 @@ function RecipeInputForm() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(recipeData),
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setIsSubmitted(true);
-        setRecipeName("");
-        setCategory("");
-        setInstructions("");
-        setImageURL("");
-        setIngredients("");
+        setFormData(initialFormData);
       } else {
         const errorMessage = await response.text();
         console.error("Failed to submit recipe:", errorMessage);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -52,8 +48,9 @@ function RecipeInputForm() {
         Recipe Name:
         <input
           type="text"
-          value={recipeName}
-          onChange={(e) => setRecipeName(e.target.value)}
+          name="recipeName"
+          value={formData.recipeName}
+          onChange={handleChange}
           required
         />
       </label>
@@ -61,15 +58,17 @@ function RecipeInputForm() {
         Category:
         <input
           type="text"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          name="category"
+          value={formData.category}
+          onChange={handleChange}
         />
       </label>
       <label>
         Instructions:
         <textarea
-          value={instructions}
-          onChange={(e) => setInstructions(e.target.value)}
+          name="instructions"
+          value={formData.instructions}
+          onChange={handleChange}
           required
         />
       </label>
@@ -77,16 +76,18 @@ function RecipeInputForm() {
         Image URL:
         <input
           type="text"
-          value={imageURL}
-          onChange={(e) => setImageURL(e.target.value)}
+          name="imageURL"
+          value={formData.imageURL}
+          onChange={handleChange}
         />
       </label>
       <label>
         Ingredient 1:
         <input
           type="text"
-          value={ingredients}
-          onChange={(e) => setIngredients(e.target.value)}
+          name="ingredients"
+          value={formData.ingredients}
+          onChange={handleChange}
         />
       </label>
       {isSubmitted && <p>Recipe submitted successfully!</p>}
